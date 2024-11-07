@@ -1,0 +1,26 @@
+def math_operations(values):
+    # Filtrar solo los elementos numéricos
+    numeric_values = [float(value) for value in values if isinstance(value, (int, float)) or str(value).replace('.', '', 1).isdigit()]
+
+    if not numeric_values:
+        print("Error: No hay valores numéricos para procesar.")
+        return
+
+    # Calcular operaciones
+    suma = sum(numeric_values)
+    promedio = suma / len(numeric_values)
+    producto = 1
+    for value in numeric_values:
+        producto *= value
+
+    division = (numeric_values[0] / numeric_values[1]) if len(numeric_values) > 1 else "No se puede realizar la división con menos de dos elementos"
+
+    # Mostrar resultados
+    print(f"Suma: {suma}")
+    print(f"Promedio: {promedio}")
+    print(f"Producto: {producto}")
+    print(f"División del primer elemento por el segundo: {division}")
+
+# Ejemplo de uso
+valores = [10, 5, 0, 'a']  # Lista con un valor no numérico para probar el filtro
+math_operations(valores)
